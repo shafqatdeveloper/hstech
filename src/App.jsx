@@ -5,6 +5,7 @@ import Navbar from './Components/Navbar';
 import HireUs from './Pages/HireUs';
 import { ToastContainer } from 'react-toastify';
 import ContactUs from './Pages/Contact';
+import WebDevelopment from './Pages/WebDevelopment';
 
 const App = () => {
   return (
@@ -15,6 +16,7 @@ const App = () => {
         <Route path="/" element={<Home/>}/>
         <Route path="/hire-us" element={<HireUs/>}/>
         <Route path="/contact" element={<ContactUs/>}/>
+        <Route path="/services/web" element={<WebDevelopment/>}/>
       </Routes>
     </div>
   )
