@@ -133,9 +133,9 @@ const Navbar = () => {
                 Web Development
               </Link>
               <Link
-                to={"/services/andriod-development"}
+                to={"/services/android-development"}
                 className={`px-3 border-b border-b-gray-200 py-3.5 hover:text-darkSky hover:border-b-[1.5px] hover:bg-gray-100 hover:border-b-darkSky transition-colors duration-200 ${
-                  location.pathname === "/services/andriod-development"
+                  location.pathname === "/services/android-development"
                     ? "text-darkSky border-b-[1.5px] border-b-darkSky bg-gray-100"
                     : "border-b-[1.5px] border-b-transparent"
                 }`}
@@ -351,10 +351,10 @@ const Navbar = () => {
           Web Development
         </Link>
         <Link
-          to={"/services/andriod-development"}
+          to={"/services/android-development"}
           onClick={()=>setNavOpened(false)}
           className={`py-3 border-b pl-6 pr-2 hover:bg-gray-100  transition-colors duration-200 border-b-gray-200 text-sm  ${
-            location.pathname === "/services/andriod-development"
+            location.pathname === "/services/android-development"
               ? "text-darkSky font-semibold"
               : "text-gray-500"
           }`}
