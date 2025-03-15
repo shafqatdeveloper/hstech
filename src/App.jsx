@@ -6,7 +6,6 @@ import HireUs from "./Pages/HireUs";
 import { ToastContainer } from "react-toastify";
 import ContactUs from "./Pages/Contact";
 import WebDevelopment from "./Pages/WebDevelopment";
-import Footer from "./Components/Footer/Footer";
 
 const App = () => {
   return (
