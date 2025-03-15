@@ -3,6 +3,9 @@ import { useFormik } from "formik";
 import * as Yup from "yup";
 import axios from "axios";
 import { toast } from "react-toastify";
+import { MdOutlineMail } from "react-icons/md";
+import { FaMobileAlt } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 const HireUs = () => {
   const formik = useFormik({
@@ -54,11 +57,15 @@ const HireUs = () => {
 
 
   return (
-    <div className="bg-darkSky text-black min-h-screen flex items-center justify-center p-2 md:p-6">
-      <div className="md:max-w-2xl w-full bg-white p-2 md:p-8 rounded-lg shadow-lg">
-        <h1 className="text-4xl font-bold text-[var(--color-sky)] mb-8">Request a Quote</h1>
+    <div className=" text-black min-h-screen flex justify-center flex-col md:flex-row p-2 md:p-6 gap-4">
+      <div className="w-full md:w-4/6 bg-white p-2 md:p-8 shadow-lg">
+        <h1 className="text-2xl font-bold text-[var(--color-sky)]">Request a Quote</h1>
+        <div className="w-full flex pt-3">
+        <div className="bg-darkSky h-[1.3px] w-1/5"></div>
+        <div className="bg-gray-200 h-[1.3px] w-4/5"></div>
+      </div>
 
-        <form onSubmit={formik.handleSubmit}>
+        <form className="mt-8" onSubmit={formik.handleSubmit}>
           {/* Name */}
           <div>
             <label className="block text-sm font-medium text-gray-700">Name</label>
@@ -133,6 +140,29 @@ const HireUs = () => {
             Submit
           </button>
         </form>
+      </div>
+      <div className="w-full md:w-2/6 bg-gradient-to-bl h-full text-white rounded-md md:rounded-r-md from-darkRed via-violet to-darkSky py-5 px-7">
+      <h1 className="text-lg font-medium">Get In Touch</h1>
+      <div className="w-full flex pt-2">
+        <div className="bg-red-500 h-[0.7px] w-2/5"></div>
+        <div className="bg-white h-[0.7px] w-3/5"></div>
+      </div>
+      <p className="text-sm font-light mt-5">Renowned mobile app and web development company delivering user-engaging mobile applications and responsive websites for multiple industry verticals.</p>
+      <Link className="flex items-center text-sm gap-1 hover:underline mt-5" to={'mailto:business@hstechnologies.com'}>
+        <MdOutlineMail/>
+        business@hstechnologies.com
+      </Link>
+      <Link className="flex items-center text-sm gap-1 hover:underline mt-1" to={'tel:+923000293355'}>
+        <FaMobileAlt/>
+        +923000293355
+      </Link>
+      <h1 className="mt-5 text-lg font-medium">Working Hours</h1>
+      <div className="w-full flex pt-2">
+        <div className="bg-red-500 h-[0.8px] w-2/5"></div>
+        <div className="bg-white h-[0.8px] w-3/5"></div>
+      </div>
+      <h1 className="text-sm mt-5"><span className="font-bold">Moday - Friday</span><span> - 09am to 07pm</span></h1>
+      <h1 className="text-sm"><span className="font-bold">Saturday - Sunday</span><span> - Closed</span></h1>
       </div>
     </div>
   );
