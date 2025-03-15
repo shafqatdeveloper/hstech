@@ -21,7 +21,7 @@ const SQAPage = () => {
               >
                 Home
               </Link>
-              <span className="text-lg font-semibold">
+              <span className="text-lg font-semibold text-gray-400">
                 {" "}
                 / services / sqa
               </span>

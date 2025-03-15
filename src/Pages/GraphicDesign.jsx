@@ -26,7 +26,7 @@ const GraphicDesign = () => {
                     >
                       Home
                     </Link>
-                    <span className="text-lg font-semibold"> / services / graphic-design</span>
+                    <span className="text-lg font-semibold text-gray-400"> / services / graphic-design</span>
                   </h1>
                 </div>
               </div>

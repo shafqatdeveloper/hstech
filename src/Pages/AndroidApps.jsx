@@ -23,7 +23,7 @@ const AndroidApps = () => {
                     >
                       Home
                     </Link>
-                    <span className="text-lg font-semibold"> / services / android-development</span>
+                    <span className="text-lg font-semibold text-gray-400"> / services / android-development</span>
                   </h1>
                 </div>
               </div>

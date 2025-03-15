@@ -27,7 +27,7 @@ const WebDevelopment = () => {
               >
                 Home
               </Link>
-              <span className="text-lg font-semibold"> / services / web</span>
+              <span className="text-lg font-semibold text-gray-400"> / services / web</span>
             </h1>
           </div>
         </div>

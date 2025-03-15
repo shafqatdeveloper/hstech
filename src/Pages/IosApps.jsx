@@ -23,7 +23,7 @@ const IosApps = () => {
                     >
                       Home
                     </Link>
-                    <span className="text-lg font-semibold"> / services / ios-development</span>
+                    <span className="text-lg font-semibold text-gray-400"> / services / ios-development</span>
                   </h1>
                 </div>
               </div>

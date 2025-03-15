@@ -1,7 +1,14 @@
 import React from "react";
+import Services from "../Components/Home/Services";
 
-const Services = () => {
-  return <div>Services</div>;
+const ServicesPage = () => {
+  return (
+    <div>
+      <div>
+        <Services />
+      </div>
+    </div>
+  );
 };
 
-export default Services;
+export default ServicesPage;
