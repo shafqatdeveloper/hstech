@@ -1,25 +1,27 @@
-import React from 'react'
+import React from "react";
 import { Route, Routes } from "react-router-dom";
-import Home from './Pages/Home';
-import Navbar from './Components/Navbar';
-import HireUs from './Pages/HireUs';
-import { ToastContainer } from 'react-toastify';
-import ContactUs from './Pages/Contact';
-import WebDevelopment from './Pages/WebDevelopment';
+import Home from "./Pages/Home";
+import Navbar from "./Components/Navbar";
+import HireUs from "./Pages/HireUs";
+import { ToastContainer } from "react-toastify";
+import ContactUs from "./Pages/Contact";
+import WebDevelopment from "./Pages/WebDevelopment";
+import Footer from "./Components/Footer/Footer";
 
 const App = () => {
   return (
     <div>
-      <Navbar/>
-      <ToastContainer/>
+      <Navbar />
+      <ToastContainer />
       <Routes>
-        <Route path="/" element={<Home/>}/>
-        <Route path="/hire-us" element={<HireUs/>}/>
-        <Route path="/contact" element={<ContactUs/>}/>
-        <Route path="/services/web" element={<WebDevelopment/>}/>
+        <Route path="/" element={<Home />} />
+        <Route path="/hire-us" element={<HireUs />} />
+        <Route path="/contact" element={<ContactUs />} />
+        <Route path="/services/web" element={<WebDevelopment />} />
       </Routes>
+      <Footer />
     </div>
-  )
-}
+  );
+};
 
-export default App
+export default App;
