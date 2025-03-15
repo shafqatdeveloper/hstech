@@ -2,7 +2,7 @@ import React from 'react'
 
 const AndroidApps = () => {
   return (
-    <div>AndroidApps</div>
+    <div>AndroidApps Page</div>
   )
 }
 
