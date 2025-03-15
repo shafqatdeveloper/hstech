@@ -71,7 +71,7 @@ export default () => {
     >
       <SwiperSlide className="h-full">
         <div className="relative h-full">
-          <div className="absolute bg-black/80 text-white w-full sm:w-2/3 h-full flex justify-center items-center ">
+          <div className="absolute bg-black/80 top-0 left-0 text-white w-full sm:w-2/3 h-full flex justify-center items-center ">
             <div className="w-full flex flex-col justify-center md:block items-center px-5 sm:px-20">
               <p className="text-red-500 font-bold uppercase text-3xl md:text-4xl lg:text-6xl text-center md:text-left">
                 welcome to
