@@ -1,11 +1,11 @@
-import { Navigation, Pagination, Scrollbar, A11y } from "swiper/modules";
-
+import { Navigation, Pagination, A11y, Autoplay } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import MainPic from "../../assets/home/main.jpg";
 import WebDevPic from "../../assets/home/reponsive-web.png";
 import MobileAppPic from "../../assets/home/mobile-app.png";
 import SoftwareDevPic from "../../assets/home/software-dev.png";
 import SeoPic from "../../assets/home/seo-pic.png";
+import { useEffect, useState } from "react";
 
 // Import Swiper styles
 import "swiper/css";
@@ -41,26 +41,45 @@ export default () => {
     },
   ];
 
+  const [isMobile, setIsMobile] = useState(false);
+
+  // Check screen width and update state
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768); // 'md' in Tailwind is 768px
+    };
+    window.addEventListener("resize", handleResize);
+
+    // Initial check
+    handleResize();
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
   return (
     <Swiper
-      modules={[Navigation, Pagination, A11y]}
-      spaceBetween={50}
+      modules={[Navigation, Pagination, A11y, Autoplay]}
+      // spaceBetween={50}
       slidesPerView={1}
-      navigation
+      navigation={!isMobile}
+      autoplay={{ pauseOnMouseEnter: true }}
+      speed={700}
       pagination={{ clickable: true }}
       className="h-screen"
     >
       <SwiperSlide className="h-full">
         <div className="relative h-full">
-          <div className="absolute bg-black/80 text-white w-2/3 h-full flex justify-center items-center ">
-            <div className="p-5 w-full flex flex-col justify-center md:block items-center px-20">
-              <p className="text-red-500 font-bold uppercase text-2xl md:text-4xl lg:text-6xl text-center md:text-left">
+          <div className="absolute bg-black/80 text-white w-full sm:w-2/3 h-full flex justify-center items-center ">
+            <div className="w-full flex flex-col justify-center md:block items-center px-5 sm:px-20">
+              <p className="text-red-500 font-bold uppercase text-3xl md:text-4xl lg:text-6xl text-center md:text-left">
                 welcome to
               </p>
-              <p className="text-[#fff] font-semibold capitalize text-2xl md:text-4xl lg:text-6xl md:mt-2 text-center md:text-left">
+              <p className="text-[#fff] font-semibold capitalize text-3xl md:text-4xl lg:text-6xl md:mt-2 text-center md:text-left">
                 HS Technologies
               </p>
-              <p className="text-xs md:text-sm text-[#fff] mt-2 md:mt-7 capitalize text-center md:text-left ">
+              <p className="text-xs md:text-sm text-[#fff] mt-3 md:mt-7 capitalize text-center md:text-left ">
                 Leading top software house in Pakistan. We offer our services in
                 web designing, crm systems, digital marketing and mobile apps.
               </p>
@@ -69,38 +88,36 @@ export default () => {
           <img
             src={MainPic}
             alt="mainpic"
-            className="h-full  w-full object-cover"
+            className="h-full w-full object-cover"
           />
         </div>
       </SwiperSlide>
-      {slides.map((item, index) => {
-        return (
-          <SwiperSlide key={index} className="h-screen">
-            <div className="h-full flex flex-col justify-center items-center md:flex-row bg-red-50 md:px-10">
-              <div className="text-white w-2/3 flex justify-center items-center md:h-full">
-                <div className="p-5 w-full flex flex-col justify-center md:block items-center ">
-                  <p className="text-red-500 font-bold uppercase text-2xl md:text-4xl lg:text-6xl text-center md:text-left">
-                    {item.heading}
-                  </p>
-                  <p className="text-[#333333] font-semibold capitalize text-2xl md:text-4xl lg:text-6xl md:mt-2 text-center md:text-left">
-                    {item.subHeading}
-                  </p>
-                  <p className="text-xs md:text-sm text-[#333333] mt-2 md:mt-7 capitalize text-center md:text-left ">
-                    {item.desc}
-                  </p>
-                </div>
-              </div>
-              <div className="w-1/3 flex justify-center items-center">
-                <img
-                  src={item.pic}
-                  alt={item.pic}
-                  className=" object-contain aspect-square"
-                />
+      {slides.map((item, index) => (
+        <SwiperSlide key={index} className="h-screen">
+          <div className="h-full flex flex-col justify-center items-center md:flex-row bg-purple-50 md:px-10">
+            <div className="text-white sm:w-2/3 flex justify-center items-center md:h-full ">
+              <div className="p-5 w-full flex flex-col justify-center md:block items-center ">
+                <p className="text-red-500 font-bold uppercase text-2xl md:text-4xl lg:text-6xl text-center md:text-left">
+                  {item.heading}
+                </p>
+                <p className="text-[#333333] font-semibold capitalize text-2xl md:text-4xl lg:text-6xl md:mt-2 text-center md:text-left">
+                  {item.subHeading}
+                </p>
+                <p className="text-xs md:text-sm text-[#333333] mt-2 md:mt-7 capitalize text-center md:text-left ">
+                  {item.desc}
+                </p>
               </div>
             </div>
-          </SwiperSlide>
-        );
-      })}
+            <div className="w-full sm:w-1/2 md:w-1/3 flex justify-center items-center px-10">
+              <img
+                src={item.pic}
+                alt={item.pic}
+                className="object-contain aspect-square w-full"
+              />
+            </div>
+          </div>
+        </SwiperSlide>
+      ))}
     </Swiper>
   );
 };
