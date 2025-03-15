@@ -16,8 +16,10 @@ const Navbar = () => {
   const location = useLocation();
   const [isWebServicesHovered, setIsWebServicesHovered] = useState(false);
   const [isPortfolioHovered, setIsPortfolioHovered] = useState(false);
+  const [isContactHovered, setIsContactHovered] = useState(false);
   const [isServicesOpen, setIsServicesOpen] = useState(false);
   const [isPortfolioOpen, setIsPortfolioOpen] = useState(false);
+  const [isContactOpen, setIsContactOpen] = useState(false);
   const [navOpened, setNavOpened] = useState(false);
   return (
     <div className="">
@@ -220,17 +222,6 @@ const Navbar = () => {
             </div>
           </div>
 
-          {/* Hire Us Link */}
-          <Link
-            className={`hover:text-darkSky hover:border-b-[1.5px] hover:border-b-darkSky ${
-              location.pathname === "/hire-us"
-                ? "text-darkSky border-b-[1.5px] border-b-darkSky"
-                : "border-b-[1.5px] border-b-transparent"
-            } pb-2`}
-            to={"/hire-us"}
-          >
-            Hire Us
-          </Link>
           {/* Team Link */}
           <Link
             className={`hover:text-darkSky hover:border-b-[1.5px] hover:border-b-darkSky ${
@@ -243,17 +234,51 @@ const Navbar = () => {
             Team
           </Link>
 
-          {/* Contact Link */}
-          <Link
-            className={`hover:text-darkSky hover:border-b-[1.5px] hover:border-b-darkSky ${
-              location.pathname === "/contact"
-                ? "text-darkSky border-b-[1.5px] border-b-darkSky"
-                : "border-b-[1.5px] border-b-transparent"
-            } pb-2`}
-            to={"/contact"}
+          <div
+            onMouseEnter={() => setIsContactHovered(true)}
+            onMouseLeave={() => setIsContactHovered(false)}
+            className="flex items-center relative"
           >
-            Contact
-          </Link>
+            <Link
+              className={`hover:text-darkSky hover:border-b-[1.5px] hover:border-b-darkSky transition-all duration-300 ease-in-out ${
+                location.pathname === "/contact"
+                  ? "text-darkSky border-b-[1.5px] border-b-darkSky"
+                  : "border-b-[1.5px] border-b-transparent"
+              } pb-2`}
+              to={"/portfolio"}
+            >
+              Contact
+            </Link>
+            <div
+              className={`absolute bg-white z-40 shadow-sm left-0 top-10 w-max text-gray-500 flex flex-col text-sm transition-all duration-300 ease-in-out transform ${
+                isContactHovered
+                  ? "opacity-100 scale-100 translate-y-0"
+                  : "opacity-0 scale-95 translate-y-[-10px] pointer-events-none"
+              }`}
+              style={{ top: "100%", left: 0 }}
+            >
+              <Link
+                to={"/contact"}
+                className={`px-3 border-b border-b-gray-200 py-3.5 hover:text-darkSky hover:border-b-[1.5px] hover:bg-gray-100 hover:border-b-darkSky transition-colors duration-200 ${
+                  location.pathname === "/contact"
+                    ? "text-darkSky border-b-[1.5px] border-b-darkSky bg-gray-100"
+                    : "border-b-[1.5px] border-b-transparent"
+                }`}
+              >
+                Contact
+              </Link>
+              <Link
+                to={"/hire-us"}
+                className={`px-3 border-b border-b-gray-200 py-3.5 hover:text-darkSky hover:border-b-[1.5px] hover:bg-gray-100 hover:border-b-darkSky transition-colors duration-200 ${
+                  location.pathname === "/hire-us"
+                    ? "text-darkSky border-b-[1.5px] border-b-darkSky bg-gray-100"
+                    : "border-b-[1.5px] border-b-transparent"
+                }`}
+              >
+                Hire Us
+              </Link>
+            </div>
+          </div>
         </section>
       </div>
       {/* Mobile Navbar */}
@@ -419,18 +444,6 @@ const Navbar = () => {
       </div>
     </div>
 
-    {/* Hire Us Link */}
-    <Link
-      to={"/hire-us"}
-      onClick={()=>setNavOpened(false)}
-      className={`py-3 px-2 hover:bg-gray-100 transition-colors  duration-200 ${
-        location.pathname === "/hire-us"
-          ? "text-darkSky font-semibold"
-          : "text-gray-700"
-      }`}
-    >
-      Hire Us
-    </Link>
     {/* Team Link */}
     <Link
       to={"/team"}
@@ -444,18 +457,51 @@ const Navbar = () => {
       Team
     </Link>
 
-    {/* Contact Link */}
-    <Link
-      to={"/contact"}
-      onClick={()=>setNavOpened(false)}
-      className={`py-3 px-2 hover:bg-gray-100  transition-colors duration-200 ${
-        location.pathname === "/contact"
-          ? "text-darkSky font-semibold"
-          : "text-gray-700"
-      }`}
-    >
-      Contact
-    </Link>
+    <div className="flex flex-col">
+      <button
+        onClick={() => setIsContactOpen(!isContactOpen)}
+        className={`py-3 px-2 hover:bg-gray-100 transition-colors  duration-200 flex items-center justify-between ${
+          location.pathname.startsWith("/contact")
+            ? "text-darkSky font-semibold"
+            : "text-gray-700"
+        }`}
+      >
+        <span>Contact</span>
+        {isContactOpen ? (
+          <RiArrowUpSLine size={18} />
+        ) : (
+          <RiArrowDownSLine size={18} />
+        )}
+      </button>
+      <div
+        className={`overflow-hidden transition-all grid grid-cols-1 duration-300 ${
+          isContactOpen ? "max-h-96" : "max-h-0"
+        }`}
+      >
+        <Link
+          to={"/hire-us"}
+          onClick={()=>setNavOpened(false)}
+          className={`py-3 pl-6 pr-2 hover:bg-gray-100 text-sm  transition-colors duration-200 border-b border-b-gray-200 ${
+            location.pathname === "/hire-us"
+              ? "text-darkSky font-semibold"
+              : "text-gray-500"
+          }`}
+        >
+          Hire Us
+        </Link>
+        <Link
+          to={"/contact"}
+          onClick={()=>setNavOpened(false)}
+          className={`py-3 pl-6 pr-2 text-sm hover:bg-gray-100  transition-colors duration-200 border-b border-b-gray-200 ${
+            location.pathname === "/contact"
+              ? "text-darkSky font-semibold"
+              : "text-gray-500"
+          }`}
+        >
+          Contact
+        </Link>
+      </div>
+    </div>
   </div>
 </div>
       </div>
