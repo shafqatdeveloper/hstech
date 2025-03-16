@@ -12,6 +12,7 @@ import IosApps from "./Pages/IosApps";
 import GraphicDesign from "./Pages/GraphicDesign";
 import SQAPage from "./Pages/SQA";
 import ServicesPage from "./Pages/Services";
+import TeamPage from "./Pages/Team"
 
 const App = () => {
   return (
@@ -28,6 +29,7 @@ const App = () => {
         <Route path="/services/ios-development" element={<IosApps />} />
         <Route path="/services/sqa" element={<SQAPage />} />
         <Route path="/services/graphic-design" element={<GraphicDesign />} />
+        <Route path="/team" element={<TeamPage />} />
       </Routes>
       <Footer />
     </div>
