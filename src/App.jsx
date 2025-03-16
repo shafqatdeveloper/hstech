@@ -12,6 +12,7 @@ import IosApps from "./Pages/IosApps";
 import GraphicDesign from "./Pages/GraphicDesign";
 import SQAPage from "./Pages/SQA";
 import ServicesPage from "./Pages/Services";
+import Testimonials from "./Pages/Testimonials";
 
 const App = () => {
   return (
@@ -23,6 +24,7 @@ const App = () => {
         <Route path="/services" element={<ServicesPage />} />
         <Route path="/hire-us" element={<HireUs />} />
         <Route path="/contact" element={<ContactUs />} />
+        <Route path="/testimonials" element={<Testimonials />} />
         <Route path="/services/web" element={<WebDevelopment />} />
         <Route path="/services/android-development" element={<AndroidApps />} />
         <Route path="/services/ios-development" element={<IosApps />} />
