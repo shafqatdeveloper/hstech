@@ -12,10 +12,12 @@ const Welcome = () => {
           Welcome to HS Technologies – Fastest Growing IT Company
         </h1>
         <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti
-          fugiat quam aspernatur dolor, explicabo sapiente velit vel natus,
-          ipsum atque doloremque voluptates aut nemo, temporibus ad voluptatibus
-          inventore harum pariatur dolores. Dolor, quae consequatur.
+          Elevate Your Digital Presence! We specialize in web & mobile app
+          development, graphic design, and software quality assurance to help
+          businesses thrive. From custom websites to high-performance apps and
+          flawless software solutions, we ensure innovation, efficiency, and
+          growth. Partner with us for cutting-edge digital solutions that drive
+          success!
         </p>
       </div>
     </div>

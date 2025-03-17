@@ -6,6 +6,7 @@ import { toast } from "react-toastify";
 import { MdOutlineMail } from "react-icons/md";
 import { FaMobileAlt } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import { API_BASE_URL } from "../../api";
 
 const HireUs = () => {
   const formik = useFormik({
@@ -29,7 +30,7 @@ const HireUs = () => {
     }),
     onSubmit: async (values,{resetForm}) => {
       try {
-        await axios.post("http://localhost:5000/api/quote/create", {
+        await axios.post(`${API_BASE_URL}/quote/create`, {
           name: values.name,
           email: values.email,
           phone: values.phone,

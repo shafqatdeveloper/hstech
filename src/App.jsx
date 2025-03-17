@@ -14,6 +14,8 @@ import SQAPage from "./Pages/SQA";
 import ServicesPage from "./Pages/Services";
 import TeamPage from "./Pages/Team"
 import Testimonials from "./Pages/Testimonials";
+import CreateProject from "./Pages/CreateProject";
+import Portfolio from "./Pages/Portfolio";
 
 const App = () => {
   return (
@@ -32,6 +34,8 @@ const App = () => {
         <Route path="/services/sqa" element={<SQAPage />} />
         <Route path="/services/graphic-design" element={<GraphicDesign />} />
         <Route path="/team" element={<TeamPage />} />
+        <Route path="/project/admin/create" element={<CreateProject />} />
+        <Route path="/portfolio" element={<Portfolio />} />
       </Routes>
       <Footer />
     </div>

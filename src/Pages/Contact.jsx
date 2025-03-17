@@ -6,6 +6,7 @@ import { toast } from "react-toastify";
 import { MdOutlineMail } from "react-icons/md";
 import { FaMobileAlt } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import { API_BASE_URL } from "../../api";
 
 const ContactUs = () => {
   const formik = useFormik({
@@ -25,7 +26,7 @@ const ContactUs = () => {
     }),
     onSubmit: async (values, { resetForm }) => {
       try {
-        await axios.post("http://localhost:5000/api/contact/create", values);
+        await axios.post(`${API_BASE_URL}/contact/create`, values);
 
         toast.success("Thank You! We'll get back to you soon");
         resetForm();
